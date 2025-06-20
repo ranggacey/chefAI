@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { 
+  ChefHat, 
   Mail, 
   Lock, 
   Eye, 
@@ -72,7 +73,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
 
         // Gunakan URL situs yang benar untuk redirect
         const siteUrl = import.meta.env.VITE_SITE_URL || window.location.origin;
-
+        
         const { error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
@@ -136,17 +137,17 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
         {/* Header with logo */}
         <div className="px-8 py-6 border-b border-white/10">
           <div className="flex items-center gap-3 max-w-md mx-auto w-full">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-violet-600 rounded-xl flex items-center justify-center overflow-hidden">
-              <img src="/images/logo.png" alt="Chef AI Logo" className="w-6 h-6 object-contain" />
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-violet-600 rounded-xl flex items-center justify-center">
+              <ChefHat className="w-5 h-5" />
             </div>
             <span className="text-xl font-medium">Chef AI</span>
           </div>
         </div>
-
+        
         {/* Main content */}
         <div className="flex-1 flex flex-col justify-center px-8 py-12">
           <div className="max-w-md mx-auto w-full">
-            <motion.div 
+            <motion.div
               key={isLogin ? 'login' : 'register'}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -168,20 +169,20 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
               <div>
                 <label className="block text-sm font-medium text-neutral-300 mb-1.5">
                   Email address
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
+                </label>
+                <div className="relative">
+                  <input
+                    type="email"
                     placeholder="you@example.com"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
                     className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
-                      required
-                    />
+                    required
+                  />
                   <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-neutral-500" />
-                  </div>
                 </div>
-
+              </div>
+              
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <label className="block text-sm font-medium text-neutral-300">
@@ -193,33 +194,33 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
                     </a>
                   )}
                 </div>
-                  <div className="relative">
-                    <input
-                      type={showPassword ? 'text' : 'password'}
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
                     placeholder="••••••••••"
-                      value={formData.password}
-                      onChange={(e) => handleInputChange('password', e.target.value)}
+                    value={formData.password}
+                    onChange={(e) => handleInputChange('password', e.target.value)}
                     className="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-3 text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all"
-                      required
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-500 hover:text-neutral-300 focus:outline-none transition-colors"
-                    >
-                      {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
-                  </div>
+                  >
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
                 </div>
-
-                <AnimatePresence>
-                  {!isLogin && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
+              </div>
+              
+              <AnimatePresence>
+                {!isLogin && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.2 }}
-                    >
+                  >
                     <div className="pt-1 pb-2">
                       <label className="block text-sm font-medium text-neutral-300 mb-1.5">
                         Confirm password
@@ -238,11 +239,11 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
                       <p className="mt-2 text-xs text-neutral-500">
                         Password must be at least 6 characters long
                       </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              
               <div className="pt-2">
                 <motion.button
                   type="submit"
@@ -261,15 +262,15 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
                   )}
                 </motion.button>
               </div>
-
+              
               <div className="text-center pt-3">
-                  <button
-                    type="button"
-                    onClick={() => setIsLogin(!isLogin)}
+                <button
+                  type="button"
+                  onClick={() => setIsLogin(!isLogin)}
                   className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
-                  >
+                >
                   {isLogin ? "Don't have an account? Create one" : "Already have an account? Sign in"}
-                  </button>
+                </button>
               </div>
             </form>
             
@@ -295,16 +296,6 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-500/30 to-violet-600/30 rounded-2xl flex items-center justify-center overflow-hidden">
-                  <img src="/images/logo.png" alt="Chef AI Logo" className="w-10 h-10 object-contain" />
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold">Chef AI</h2>
-                  <p className="text-neutral-400">Smart Kitchen Assistant</p>
-                </div>
-              </div>
-              
               <h2 className="text-4xl font-bold mb-6">
                 Transform your cooking experience with 
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-400"> Chef AI</span>
@@ -317,13 +308,13 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
               
               <div className="space-y-6">
                 {benefits.map((benefit, index) => (
-              <motion.div 
+                  <motion.div
                     key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                     className="flex gap-4"
-              >
+                  >
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/20 to-violet-500/20 flex items-center justify-center flex-shrink-0">
                       {benefit.icon}
                     </div>
@@ -353,10 +344,10 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onAuthSuccess }) => {
                   </div>
                 </div>
               </div>
-              </motion.div>
-            </div>
+            </motion.div>
           </div>
+        </div>
       </div>
     </div>
   )
-}
+} 

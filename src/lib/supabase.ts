@@ -1,9 +1,25 @@
 import { createClient } from '@supabase/supabase-js'
 
+// Tambahkan definisi tipe untuk ImportMeta
+declare global {
+  interface ImportMeta {
+    env: Record<string, string>
+  }
+}
+
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const siteUrl = import.meta.env.VITE_SITE_URL || 'https://chef-ai-hazel.vercel.app'
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: true,
+    flowType: 'pkce',
+    redirectTo: `${siteUrl}/auth/callback`
+  }
+})
 
 export type Database = {
   public: {

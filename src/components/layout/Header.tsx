@@ -11,8 +11,16 @@ export const Header: React.FC = () => {
   return (
     <header className="bg-white border-b border-neutral-200 px-6 py-4">
       <div className="flex items-center justify-between">
+        {/* Logo for mobile */}
+        <div className="flex items-center gap-2 md:hidden">
+          <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-violet-600 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/images/logo.png" alt="Chef AI Logo" className="w-5 h-5 object-contain" />
+          </div>
+          <span className="text-lg font-medium">Chef AI</span>
+        </div>
+
         {/* Search */}
-        <div className="flex-1 max-w-md">
+        <div className="flex-1 max-w-md mx-auto">
           <Input
             placeholder="Search recipes, ingredients..."
             leftIcon={<Search className="w-4 h-4" />}

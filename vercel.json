@@ -2,6 +2,5 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "buildCommand": "node --experimental-modules vercel-build.js",
-  "outputDirectory": "dist"
+  "framework": "vite"
 } 

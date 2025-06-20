@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chef AI - Smart Kitchen Assistant</title>
     <meta name="description" content="Revolutionary AI-powered kitchen assistant that helps you manage ingredients, generate recipes, and plan meals intelligently." />
@@ -16,11 +16,9 @@
     <meta property="og:title" content="Chef AI - Smart Kitchen Assistant" />
     <meta property="og:description" content="Revolutionary AI-powered kitchen assistant that helps you manage ingredients, generate recipes, and plan meals intelligently." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/logo.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Chef AI - Smart Kitchen Assistant" />
     <meta name="twitter:description" content="Revolutionary AI-powered kitchen assistant that helps you manage ingredients, generate recipes, and plan meals intelligently." />
-    <meta name="twitter:image" content="/images/logo.png" />
     
     <!-- Theme color -->
     <meta name="theme-color" content="#F97316" />
@@ -94,12 +92,16 @@
         pointer-events: none;
       }
     </style>
+    <script type="module" crossorigin src="/assets/index-CPj6aXXc.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DyBkRHaq.css">
   </head>
   <body>
     <!-- Loading Screen -->
     <div id="loading-screen">
       <div class="loading-logo">
-        <img src="/images/logo.png" alt="Chef AI Logo" width="40" height="40" />
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.5 14.5L4 19L5.5 20.5L10 16M15 5L9 11L13 15L19 9M15 5L19 9M15 5L19 1M19 9L23 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
       <h1 class="loading-text">Chef AI</h1>
       <p class="loading-subtitle">Smart Kitchen Assistant</p>
@@ -107,7 +109,6 @@
     </div>
     
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
     
     <script>
       // Hide loading screen when app is ready
