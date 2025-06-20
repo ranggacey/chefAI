@@ -2,5 +2,7 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "framework": "vite"
+  "buildCommand": "chmod +x build.sh && ./build.sh",
+  "installCommand": "npm install",
+  "outputDirectory": "dist"
 } 
