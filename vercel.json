@@ -2,6 +2,6 @@
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ],
-  "buildCommand": "chmod +x build.sh && ./build.sh",
+  "buildCommand": "node --experimental-modules vercel-build.js",
   "outputDirectory": "dist"
 } 
