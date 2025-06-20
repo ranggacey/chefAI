@@ -6,7 +6,6 @@ import {
   BookOpen, 
   Calendar, 
   MessageCircle,
-  ChefHat,
   LogOut
 } from 'lucide-react'
 import { useStore } from '../../store/useStore'
@@ -39,8 +38,8 @@ export const Navigation: React.FC = () => {
       {/* Logo */}
       <div className="p-6 border-b border-neutral-200">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
-            <ChefHat className="w-6 h-6 text-white" />
+          <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center overflow-hidden">
+            <img src="/images/logo.png" alt="Chef AI Logo" className="w-6 h-6 object-contain" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-neutral-900">Chef AI</h1>
